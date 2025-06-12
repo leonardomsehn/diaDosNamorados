@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="principal">
+      <button id="playPauseBtn">Tocar Música ♫</button>
       <audio id="bgm" autoplay muted loop>
         <source src="/lovelove.mp3" type="audio/mpeg" />
       </audio>
@@ -38,6 +39,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.3.2/moment-duration-format.min.js"></script>
 
     <script>
+      // Controle de música
+      const audio = document.getElementById("bgm");
+      const playPauseBtn = document.getElementById("playPauseBtn");
+
+      playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.textContent = "Pausar Música ♫";
+        } else {
+          audio.pause();
+          playPauseBtn.textContent = "Tocar Música ♫";
+        }
+      });
+
       const images = [
         "/fotos/1.jpg",
         "/fotos/2.jpg",

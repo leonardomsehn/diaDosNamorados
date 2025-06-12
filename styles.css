@@ -42,6 +42,29 @@ body {
   border-radius: 10px;
 }
 
+#playPauseBtn {
+  background-color: #ff4081; /* Rosa vibrante */
+  color: white; /* Texto branco */
+  border: none; /* Sem borda */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  border-radius: 8px; /* Cantos arredondados */
+  cursor: pointer; /* Muda o cursor ao passar em cima */
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  user-select: none; /* Impede seleção do texto */
+}
+
+#playPauseBtn:hover {
+  background-color: #e73370; /* Rosa um pouco mais escuro ao passar o mouse */
+}
+
+#playPauseBtn:active {
+  background-color: #c1225e; /* Rosa mais escuro ao clicar */
+  box-shadow: none;
+  transform: translateY(2px); /* Dá um efeito de pressionar */
+}
+
 /* Botões fora da imagem */
 button.prev,
 button.next {
