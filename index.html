@@ -8,10 +8,13 @@
   </head>
   <body>
     <div class="principal">
-      <audio autoplay loop>
+      <audio id="bgm" autoplay muted loop>
         <source src="/lovelove.mp3" type="audio/mpeg" />
-        Seu navegador não suporta o elemento de áudio.
       </audio>
+      <script>
+        document.getElementById("bgm").muted = false;
+      </script>
+
       <div class="titulo">
         <p>Meus <b>melhores momentos</b> <br />são ao seu lado</p>
       </div>
