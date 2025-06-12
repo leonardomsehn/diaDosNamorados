@@ -1,0 +1,130 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: rgb(42, 27, 109);
+}
+
+.principal {
+  width: 300px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.img {
+  width: 300px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 5px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  margin-top: 20px;
+}
+
+.text h1 {
+  font-size: 1.5rem;
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-weight: 500;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(42, 27, 109);
+  font-family: sans-serif;
+}
+
+.principal {
+  position: relative; /* Necessário para posicionar as setas ABSOLUTAMENTE */
+  width: 300px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.img {
+  width: 300px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Botões fora, posicionados ao lado da imagem */
+button.prev,
+button.next {
+  position: absolute;
+  top: 320px; /* ajusta para alinhar verticalmente com a imagem */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button.prev {
+  left: -40px; /* fora da imagem, à esquerda */
+}
+
+button.next {
+  right: -40px; /* fora da imagem, à direita */
+}
+
+.text {
+  color: aliceblue;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.titulo {
+  color: aliceblue;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text h1 {
+  font-size: 1.5rem;
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-weight: 500;
+}

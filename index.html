@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrossel Fora</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="principal">
+      <audio autoplay loop>
+        <source src="/lovelove.mp3" type="audio/mpeg" />
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+      <div class="titulo">
+        <p>Meus <b>melhores momentos</b> <br />são ao seu lado</p>
+      </div>
+      <button class="prev">&#10094;</button>
+      <div class="img">
+        <img id="carousel-image" src="/fotos/1.jpg" alt="Imagem Carrossel" />
+      </div>
+      <button class="next">&#10095;</button>
+
+      <div class="text">
+        <h1>Te amo, meu amor</h1>
+        <p>Juntos há</p>
+        <p id="timer"></p>
+        <p>até o infinito ♡</p>
+      </div>
+    </div>
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- moment-duration-format plugin (opcional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.3.2/moment-duration-format.min.js"></script>
+
+    <script>
+      const images = [
+        "/fotos/1.jpg",
+        "/fotos/2.jpg",
+        "/fotos/3.jpg",
+        "/fotos/4.jpg",
+        "/fotos/5.jpg",
+        "/fotos/6.jpg",
+        "/fotos/7.jpg",
+        "/fotos/8.jpg",
+        "/fotos/9.jpg",
+        "/fotos/10.jpg",
+      ];
+      let index = 0;
+      const imgElement = document.getElementById("carousel-image");
+
+      function showImage(i) {
+        index = (i + images.length) % images.length;
+        imgElement.src = images[index];
+      }
+
+      function nextImage() {
+        showImage(index + 1);
+      }
+
+      function prevImage() {
+        showImage(index - 1);
+      }
+
+      setInterval(nextImage, 3000);
+      document.querySelector(".next").addEventListener("click", nextImage);
+      document.querySelector(".prev").addEventListener("click", prevImage);
+
+      //timer
+      const birthDate = moment("2021-07-07T17:23:30");
+
+      function updateTimer() {
+        const now = moment();
+        const duration = moment.duration(now.diff(birthDate));
+
+        // Formatando anos e meses separadamente
+        const years = now.diff(birthDate, "years");
+        const months = now.diff(
+          birthDate.clone().add(years, "years"),
+          "months"
+        );
+        const days = now.diff(
+          birthDate.clone().add(years, "years").add(months, "months"),
+          "days"
+        );
+
+        // Formatando o restante em horas, minutos e segundos
+        const remaining = moment.duration(
+          now.diff(
+            birthDate
+              .clone()
+              .add(years, "years")
+              .add(months, "months")
+              .add(days, "days")
+          )
+        );
+        const hours = remaining.hours();
+        const minutes = remaining.minutes();
+        const seconds = remaining.seconds();
+
+        document.getElementById(
+          "timer"
+        ).innerText = `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    </script>
+  </body>
+</html>
